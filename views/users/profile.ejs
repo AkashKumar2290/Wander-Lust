@@ -1,0 +1,184 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="profile-page">
+
+
+<!-- PROFILE -->
+
+<div class="profile-card">
+
+    <div class="profile-info">
+
+        <div class="profile-avatar">
+            <%= user.username.charAt(0).toUpperCase() %>
+        </div>
+
+        <div class="profile-details">
+
+            <h2>
+                <%= user.username %>
+            </h2>
+
+            <p>
+                <i class="fa-regular fa-envelope"></i>
+                <%= user.email %>
+            </p>
+
+            <p>
+                <i class="fa-solid fa-house"></i>
+                <%= listings.length %> Listing<%= listings.length === 1 ? "" : "s" %>
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="profile-actions">
+
+        <a
+            href="/change-password"
+            class="profile-action profile-password"
+        >
+            <i class="fa-solid fa-lock"></i>
+            Change Password
+        </a>
+
+        <a
+            href="/logout"
+            class="profile-action profile-logout"
+        >
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            Log Out
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- LISTINGS HEADER -->
+
+<div class="listings-header">
+
+    <div>
+        <h3>Your Listings</h3>
+
+        <p>
+            Places you've shared with the WanderLust community.
+        </p>
+    </div>
+
+    <div class="listing-count">
+        <%= listings.length %>
+        <%= listings.length === 1 ? "Listing" : "Listings" %>
+    </div>
+
+</div>
+
+
+<!-- LISTINGS -->
+
+<% if (listings.length > 0) { %>
+
+    <div class="profile-listings">
+
+        <% listings.forEach(listing => { %>
+
+            <a
+                href="/listings/<%= listing._id %>"
+                class="profile-listing"
+            >
+
+                <img
+                    src="<%= listing.image.url %>"
+                    alt="<%= listing.title %>"
+                    class="profile-listing-image"
+                >
+
+                <div class="profile-listing-body">
+
+                    <div class="profile-listing-title">
+                        <%= listing.title %>
+                    </div>
+
+                    <div class="profile-listing-location">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <%= listing.location %>, <%= listing.country %>
+                    </div>
+
+                    <div class="profile-listing-price">
+                        <b>₹<%= listing.price.toLocaleString("en-IN") %></b>
+                        / night
+                    </div>
+
+                </div>
+
+            </a>
+
+        <% }) %>
+
+    </div>
+
+<% } else { %>
+
+
+    <!-- EMPTY STATE -->
+
+    <div class="empty-listings">
+
+        <div class="empty-icon">
+            <i class="fa-solid fa-house"></i>
+        </div>
+
+        <h4>No listings yet</h4>
+
+        <p>
+            Start sharing your favourite places with WanderLust.
+        </p>
+
+        <a
+            href="/listings/new"
+            class="add-listing-btn"
+        >
+            <i class="fa-solid fa-plus"></i>
+            Add Your First Listing
+        </a>
+
+    </div>
+
+<% } %>
+
+<div class="profile-actions">
+
+    <a href="/change-password" class="profile-action profile-password">
+        <i class="fa-solid fa-lock"></i>
+        Change Password
+    </a>
+
+    <a href="/logout" class="profile-action profile-logout">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        Log Out
+    </a>
+
+    <form method="POST" action="/profile?_method=DELETE"
+            onsubmit="return confirmDeleteProfile();">
+
+        <button type="submit" class="profile-action profile-delete">
+            <i class="fa-solid fa-trash"></i>
+            Delete Profile
+        </button>
+
+    </form>
+
+</div>
+
+</div>
+<script>
+    function confirmDeleteProfile() {
+        return confirm(
+            "Are you sure you want to delete your profile?\n\n" +
+            "Your account, all your listings and their reviews will be permanently deleted."
+        );
+    }
+</script>

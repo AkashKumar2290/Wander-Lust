@@ -1,0 +1,156 @@
+<% layout("layouts/boilerplate") %>
+
+
+
+<div class="signup-page">
+
+<div class="signup-card">
+
+    <div class="signup-icon">
+        <i class="fa-regular fa-compass"></i>
+    </div>
+
+    <div class="signup-header">
+        <h1>Join WanderLust</h1>
+        <p>Create your account and start exploring.</p>
+    </div>
+
+
+    <form
+        action="/signup"
+        method="post"
+        class="needs-validation"
+        novalidate
+    >
+
+        <!-- Username -->
+
+        <div class="mb-4">
+
+            <label for="username" class="form-label">
+                Username
+            </label>
+
+            <input
+                name="username"
+                id="username"
+                type="text"
+                class="form-control"
+                placeholder="Enter your username"
+                required
+            />
+
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+
+            <div class="invalid-feedback">
+                Please enter a username.
+            </div>
+
+        </div>
+
+
+        <!-- Email -->
+
+        <div class="mb-4">
+
+            <label for="email" class="form-label">
+                Email
+            </label>
+
+            <input
+                name="email"
+                id="email"
+                type="email"
+                class="form-control"
+                placeholder="Enter your email"
+                required
+            />
+
+            <div class="invalid-feedback">
+                Please enter a valid email.
+            </div>
+
+        </div>
+
+
+        <!-- Password -->
+
+        <div class="mb-4">
+
+            <label for="password" class="form-label">
+                Password
+            </label>
+
+            <div class="password-group">
+
+                <input
+                    name="password"
+                    id="password"
+                    type="password"
+                    class="form-control"
+                    placeholder="Create a password"
+                    minlength="3"
+                    required
+                />
+
+                <button
+                    type="button"
+                    class="password-toggle"
+                    onclick="toggleSignupPassword()"
+                    aria-label="Show password"
+                >
+                    <i id="passwordIcon" class="fa-regular fa-eye"></i>
+                </button>
+
+            </div>
+
+            <div class="invalid-feedback">
+                Password must be at least 3 characters.
+            </div>
+
+        </div>
+
+
+        <!-- Button -->
+
+        <button class="signup-btn" type="submit">
+            <i class="fa-solid fa-user-plus me-2"></i>
+            Create Account
+        </button>
+
+    </form>
+
+
+    <div class="signup-footer">
+        Already have an account?
+        <a href="/login">Log in</a>
+    </div>
+
+</div>
+</div>
+
+<script>
+    function toggleSignupPassword() {
+
+        const password = document.getElementById("password");
+        const icon = document.getElementById("passwordIcon");
+
+        if (password.type === "password") {
+
+            password.type = "text";
+
+            icon.classList.remove("fa-eye");
+            icon.classList.add("fa-eye-slash");
+
+        } else {
+
+            password.type = "password";
+
+            icon.classList.remove("fa-eye-slash");
+            icon.classList.add("fa-eye");
+
+        }
+    }
+</script>

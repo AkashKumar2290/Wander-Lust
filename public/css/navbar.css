@@ -1,0 +1,338 @@
+/* Airbnb Navbar Icon */
+
+.navbar-airbnb-icon {
+    width: 34px;
+    height: 34px;
+
+    object-fit: contain;
+    display: block;
+
+    border-radius: 8px;
+
+    transition: all 0.25s ease;
+}
+
+.premium-logo:hover .navbar-airbnb-icon {
+    transform: scale(1.08);
+}
+
+    .premium-navbar .container-fluid {
+        height: 100%;
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+
+    .premium-logo {
+        width: 44px;
+        height: 44px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        color: #fe424d;
+        font-size: 1.65rem;
+
+        border-radius: 14px;
+        text-decoration: none;
+
+        transition: 0.25s ease;
+    }
+
+    .premium-logo:hover {
+        background: #fff1f2;
+        color: #fe424d;
+        transform: translateY(-2px);
+    }
+
+
+
+    .premium-explore {
+        margin-left: 8px;
+    }
+
+    .premium-explore .nav-link {
+        color: #333;
+        font-size: 0.92rem;
+        font-weight: 600;
+
+        padding: 9px 14px !important;
+        border-radius: 12px;
+
+        transition: 0.2s ease;
+    }
+
+    .premium-explore .nav-link:hover {
+        background: #f7f7f7;
+        color: #fe424d;
+    }
+
+
+
+
+    .premium-search-wrapper {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+
+        transform: translate(-50%, -50%);
+
+        z-index: 10;
+    }
+
+    .premium-search {
+        width: 390px;
+        height: 48px;
+
+        display: flex;
+        align-items: center;
+
+        background: #ffffff;
+
+        border: 1px solid #dedede;
+        border-radius: 30px;
+
+        padding: 4px;
+
+        box-shadow:
+            0 3px 12px rgba(0, 0, 0, 0.08);
+
+        transition: all 0.25s ease;
+    }
+
+    .premium-search:hover {
+        box-shadow:
+            0 5px 18px rgba(0, 0, 0, 0.12);
+    }
+
+    .premium-search:focus-within {
+        border-color: #fe424d;
+
+        box-shadow:
+            0 0 0 4px rgba(254, 66, 77, 0.10),
+            0 5px 18px rgba(0, 0, 0, 0.10);
+    }
+
+
+    /* Search Input */
+
+    .premium-search .search-inp {
+        flex: 1;
+
+        height: 40px;
+
+        border: none !important;
+        outline: none !important;
+        box-shadow: none !important;
+
+        background: transparent !important;
+
+        padding: 0 16px !important;
+
+        font-size: 0.9rem;
+        color: #222;
+    }
+
+    .premium-search .search-inp::placeholder {
+        color: #888;
+    }
+
+
+    /* Search Button */
+
+    .premium-search .search-btn {
+        height: 40px;
+
+        padding: 0 18px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+
+        border: none;
+        border-radius: 22px;
+
+        background: #fe424d;
+        color: #fff;
+
+        font-size: 0.86rem;
+        font-weight: 600;
+
+        white-space: nowrap;
+
+        transition: all 0.2s ease;
+    }
+
+    .premium-search .search-btn:hover {
+        background: #e93640;
+        color: #fff;
+
+        transform: scale(1.02);
+    }
+
+    .premium-search .search-btn i {
+        margin: 0;
+        font-size: 0.8rem;
+    }
+
+
+    .premium-right {
+        margin-left: auto;
+
+        display: flex;
+        align-items: center;
+
+        gap: 5px;
+    }
+
+    .premium-right .nav-link {
+        color: #333;
+
+        font-size: 0.87rem;
+        font-weight: 500;
+
+        padding: 9px 12px !important;
+
+        border-radius: 12px;
+
+        white-space: nowrap;
+
+        transition: all 0.2s ease;
+    }
+
+    .premium-right .nav-link:hover {
+        background: #f7f7f7;
+        color: #fe424d;
+    }
+
+
+    /* Airbnb Home */
+
+    .premium-home {
+        font-weight: 600 !important;
+    }
+
+
+    /* Signup */
+
+    .premium-signup {
+        border: 1px solid #e5e5e5;
+        background: #fff;
+    }
+
+    .premium-signup:hover {
+        border-color: #fe424d;
+        background: #fff5f6 !important;
+    }
+
+
+    /* Login */
+
+    .premium-login {
+        background: #fe424d !important;
+        color: #fff !important;
+
+        padding-left: 17px !important;
+        padding-right: 17px !important;
+    }
+
+    .premium-login:hover {
+        background: #e93640 !important;
+        color: #fff !important;
+    }
+
+
+    @media (max-width: 1100px) {
+
+        .premium-search {
+            width: 330px;
+        }
+
+        .premium-right .nav-link {
+            padding-left: 8px !important;
+            padding-right: 8px !important;
+        }
+    }
+
+
+    @media (max-width: 768px) {
+
+        .premium-navbar {
+            height: auto;
+            min-height: 68px;
+            padding: 10px 16px;
+        }
+
+        .premium-navbar .container-fluid {
+            height: auto;
+        }
+
+        .premium-search-wrapper {
+            position: static;
+
+            transform: none;
+
+            margin: 12px 0;
+
+            width: 100%;
+        }
+
+        .premium-search {
+            width: 100%;
+        }
+
+        .premium-right {
+            display: block;
+            width: 100%;
+            margin-top: 5px;
+        }
+
+        .premium-right .nav-link {
+            display: block;
+            text-align: center;
+            margin-bottom: 4px;
+        }
+
+        .premium-login,
+        .premium-signup {
+            display: block;
+        }
+
+        .premium-explore {
+            margin-left: 0;
+        }
+    }
+
+
+.profile-nav-link {
+    display: flex !important;
+    align-items: center;
+    gap: 7px;
+}
+
+.profile-nav-icon {
+    width: 30px;
+    height: 30px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #fff1f2;
+    color: #fe424d;
+
+    font-size: 0.82rem;
+
+    transition: all 0.2s ease;
+}
+
+.profile-nav-link:hover .profile-nav-icon {
+    background: #fe424d;
+    color: #fff;
+    transform: scale(1.05);
+}

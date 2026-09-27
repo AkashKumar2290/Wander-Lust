@@ -1,0 +1,617 @@
+<% layout("layouts/boilerplate") %>
+
+
+<script> 
+    const mapToken = "<%= process.env.MAP_TOKEN %>";
+    const listing = <%- JSON.stringify(listing) %>; 
+</script>
+
+<div class="listing-show-wrapper">
+
+
+    <div class="listing-header">
+
+        <h1>
+            <%= listing.title %>
+        </h1>
+
+        <div class="listing-location">
+            <i class="fa-solid fa-location-dot"></i>
+            <%= listing.location %>, <%= listing.country %>
+        </div>
+
+    </div>
+
+
+    <div class="main-listing-card">
+
+        <img
+            src="<%= listing.image.url %>"
+            class="show-img"
+            alt="listing_image"
+        >
+
+
+        <div class="listing-details">
+
+
+            <!-- OWNER -->
+
+            <div class="owner-box">
+
+                <div class="owner-avatar">
+
+                    <% if (listing.owner && listing.owner.username) { %>
+
+                        <%= listing.owner.username.charAt(0).toUpperCase() %>
+
+                    <% } else { %>
+
+                        U
+
+                    <% } %>
+
+                </div>
+
+
+                <div class="owner-text">
+
+                    <small>
+                        Hosted by
+                    </small>
+
+                    <strong>
+
+                        <% if (listing.owner && listing.owner.username) { %>
+
+                            <%= listing.owner.username %>
+
+                        <% } else { %>
+
+                            User
+
+                        <% } %>
+
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- DESCRIPTION -->
+
+            <p class="description">
+                <%= listing.description %>
+            </p>
+
+
+
+            <!-- =========================
+                    INFO CARDS
+            ========================== -->
+
+            <div class="listing-info-grid">
+
+
+                <!-- PRICE -->
+
+                <div class="info-box">
+
+                    <div class="info-icon">
+
+                        <i class="fa-solid fa-indian-rupee-sign"></i>
+
+                    </div>
+
+                    <div class="info-label">
+                        Price
+                    </div>
+
+                    <div class="info-value">
+
+                        ₹<%= listing.price.toLocaleString("en-IN") %> / night
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- LOCATION -->
+
+                <div class="info-box">
+
+                    <div class="info-icon">
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                    </div>
+
+                    <div class="info-label">
+                        Location
+                    </div>
+
+                    <div class="info-value">
+
+                        <%= listing.location %>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- COUNTRY -->
+
+                <div class="info-box">
+
+                    <div class="info-icon">
+
+                        <i class="fa-solid fa-earth-americas"></i>
+
+                    </div>
+
+                    <div class="info-label">
+                        Country
+                    </div>
+
+                    <div class="info-value">
+
+                        <%= listing.country %>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                    OWNER ACTIONS
+            ========================== -->
+
+            <% if (
+                currUser &&
+                listing.owner &&
+                listing.owner._id &&
+                listing.owner._id.equals(currUser._id)
+            ) { %>
+
+
+                <div class="owner-actions">
+
+
+                    <!-- EDIT -->
+
+                    <a
+                        href="/listings/<%= listing._id %>/edit"
+                        class="owner-edit-btn"
+                    >
+
+                        <i class="fa-solid fa-pen-to-square"></i>
+
+                        Edit
+
+                    </a>
+
+
+
+                    <!-- DELETE -->
+
+                    <form
+                        method="POST"
+                        action="/listings/<%= listing._id %>?_method=DELETE"
+                    >
+
+                        <button
+                            type="submit"
+                            class="owner-delete-btn"
+                        >
+
+                            <i class="fa-solid fa-trash"></i>
+
+                            Delete
+
+                        </button>
+
+                    </form>
+
+
+                </div>
+
+
+            <% } %>
+
+
+        </div>
+
+    </div>
+
+
+
+
+    <div class="review-section">
+
+        <% if (currUser) { %>
+
+
+            <h2 class="section-title">
+
+                Leave a Review
+
+            </h2>
+
+
+
+            <div class="review-form-card">
+
+
+                <form
+                    action="/listings/<%= listing._id %>/reviews"
+                    method="POST"
+                    novalidate
+                    class="needs-validation"
+                >
+
+
+                    <!-- RATING -->
+
+                    <div class="mb-4">
+
+                        <label
+                            for="rating"
+                            class="form-label fw-semibold"
+                        >
+                            Rating
+                        </label>
+
+
+
+                        <fieldset class="starability-slot">
+
+
+                            <input
+                                type="radio"
+                                id="no-rate"
+                                class="input-no-rate"
+                                name="review[rating]"
+                                value="1"
+                                checked
+                                aria-label="No rating."
+                            />
+
+
+                            <input
+                                type="radio"
+                                id="first-rate1"
+                                name="review[rating]"
+                                value="1"
+                            />
+
+                            <label
+                                for="first-rate1"
+                                title="Terrible"
+                            >
+                                1 star
+                            </label>
+
+
+
+                            <input
+                                type="radio"
+                                id="first-rate2"
+                                name="review[rating]"
+                                value="2"
+                            />
+
+                            <label
+                                for="first-rate2"
+                                title="Not good"
+                            >
+                                2 stars
+                            </label>
+
+
+
+                            <input
+                                type="radio"
+                                id="first-rate3"
+                                name="review[rating]"
+                                value="3"
+                            />
+
+                            <label
+                                for="first-rate3"
+                                title="Average"
+                            >
+                                3 stars
+                            </label>
+
+
+
+                            <input
+                                type="radio"
+                                id="first-rate4"
+                                name="review[rating]"
+                                value="4"
+                            />
+
+                            <label
+                                for="first-rate4"
+                                title="Very good"
+                            >
+                                4 stars
+                            </label>
+
+
+
+                            <input
+                                type="radio"
+                                id="first-rate5"
+                                name="review[rating]"
+                                value="5"
+                            />
+
+                            <label
+                                for="first-rate5"
+                                title="Amazing"
+                            >
+                                5 stars
+                            </label>
+
+
+                        </fieldset>
+
+                    </div>
+
+
+
+                    <!-- COMMENT -->
+
+                    <div class="mb-4">
+
+
+                        <label
+                            for="comment"
+                            class="form-label fw-semibold"
+                        >
+
+                            Your Review
+
+                        </label>
+
+
+
+                        <textarea
+                            name="review[comment]"
+                            id="comment"
+                            rows="5"
+                            class="form-control"
+                            placeholder="Share your experience..."
+                            required
+                        ></textarea>
+
+
+
+                        <div class="invalid-feedback">
+
+                            Please Add Some Comments for Reviews
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- SUBMIT BUTTON -->
+
+                    <button
+                        type="submit"
+                        class="review-submit"
+                    >
+
+                        <i class="fa-solid fa-paper-plane"></i>
+
+                        <span>
+                            Submit Review
+                        </span>
+
+                    </button>
+
+
+                </form>
+
+            </div>
+
+
+        <% } %>
+
+
+
+
+        <% if (listing.reviews && listing.reviews.length > 0) { %>
+
+
+            <h2 class="section-title">
+
+                <i class="fa-regular fa-comments me-2"></i>
+
+                All Reviews
+
+            </h2>
+
+
+
+            <div class="reviews-grid">
+
+
+                <% for (let review of listing.reviews) { %>
+
+
+                    <div class="review-card">
+
+
+                        <!-- REVIEW USER -->
+
+                        <div class="review-user">
+
+
+                            <div class="review-user-left">
+
+
+                                <div class="review-avatar">
+
+
+                                    <% if (
+                                        review.author &&
+                                        review.author.username
+                                    ) { %>
+
+                                        <%= review.author.username
+                                            .charAt(0)
+                                            .toUpperCase()
+                                        %>
+
+                                    <% } else { %>
+
+                                        U
+
+                                    <% } %>
+
+
+                                </div>
+
+
+
+                                <div class="review-username">
+
+                                    @<%= review.author
+                                        ? review.author.username
+                                        : "User"
+                                    %>
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <!-- RATING -->
+
+                        <p
+                            class="starability-result"
+                            data-rating="<%= review.rating %>"
+                        >
+
+                            Rated: <%= review.rating %> stars
+
+                        </p>
+
+
+
+                        <!-- COMMENT -->
+
+                        <p class="review-comment">
+
+                            <%= review.comment %>
+
+                        </p>
+
+
+
+                        <!-- DELETE REVIEW -->
+
+                        <form
+                            method="POST"
+                            action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE"
+                        >
+
+                            <button
+                                type="submit"
+                                class="btn btn-sm btn-outline-danger delete-review-btn"
+                            >
+
+                                <i class="fa-solid fa-trash me-1"></i>
+
+                                Delete
+
+                            </button>
+
+                        </form>
+
+
+                    </div>
+
+
+                <% } %>
+
+
+            </div>
+
+
+        <% } %>
+
+
+    </div>
+
+
+
+
+    <div class="map-section">
+
+
+        <h2 class="map-heading">
+
+            <i class="fa-solid fa-map-location-dot me-2"></i>
+
+            Where you'll be
+
+        </h2>
+
+
+
+        <% if (
+            listing.geometry &&
+            listing.geometry.coordinates &&
+            listing.geometry.coordinates.length === 2
+        ) { %>
+
+
+            <div id="map"></div>
+
+
+        <% } else { %>
+
+
+            <div class="map-unavailable">
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                <span>
+                    Map location is currently unavailable for this listing.
+                </span>
+
+            </div>
+
+
+        <% } %>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- MAP JAVASCRIPT -->
+
+<script src="/js/map.js"></script>

@@ -1,0 +1,130 @@
+
+
+.premium-alert {
+    width: min(620px, calc(100% - 30px));
+    margin: 22px auto 0;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 14px 16px;
+
+    border-radius: 14px;
+    border: 1px solid;
+
+    font-size: 0.9rem;
+    font-weight: 500;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+
+    animation: flashSlide 0.35s ease;
+}
+
+.premium-alert i {
+    width: 34px;
+    height: 34px;
+
+    flex: 0 0 34px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    font-size: 0.9rem;
+}
+
+.premium-alert .flash-message {
+    flex: 1;
+}
+
+.premium-alert .btn-close {
+    position: static;
+
+    width: 28px;
+    height: 28px;
+
+    padding: 0;
+    margin: 0;
+
+    opacity: 0.55;
+    background-size: 10px;
+
+    flex: 0 0 28px;
+}
+
+.premium-alert .btn-close:hover {
+    opacity: 1;
+}
+
+
+/* =========================================
+   SUCCESS - LIGHT GREEN
+========================================= */
+
+.premium-alert.premium-success {
+    color: #166534 !important;
+    background-color: #f0fdf4 !important;
+    border-color: #bbf7d0 !important;
+}
+
+.premium-alert.premium-success i {
+    background-color: #dcfce7 !important;
+    color: #16a34a !important;
+}
+
+
+/* =========================================
+   ERROR - LIGHT RED
+========================================= */
+
+.premium-alert.premium-error {
+    color: #991b1b !important;
+    background-color: #fef2f2 !important;
+    border-color: #fecaca !important;
+}
+
+.premium-alert.premium-error i {
+    background-color: #fee2e2 !important;
+    color: #dc2626 !important;
+}
+
+
+/* =========================================
+   ANIMATION
+========================================= */
+
+@keyframes flashSlide {
+
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 576px) {
+
+    .premium-alert {
+        width: calc(100% - 24px);
+        padding: 12px;
+        font-size: 0.85rem;
+    }
+
+    .premium-alert i {
+        width: 30px;
+        height: 30px;
+        flex-basis: 30px;
+    }
+}
+

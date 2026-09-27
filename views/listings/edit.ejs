@@ -1,0 +1,184 @@
+<% layout("layouts/boilerplate") %>
+
+<div class="edit-page">
+
+    <div class="edit-header">
+        <h3>Edit your Listing</h3>
+        <p>Update your listing details, image, price and location.</p>
+    </div>
+
+    <div class="edit-card">
+
+        <form
+            method="POST"
+            action="/listings/<%= listing._id %>?_method=PUT"
+            novalidate
+            class="needs-validation"
+            enctype="multipart/form-data"
+        >
+
+            <!-- Title -->
+            <div class="mb-4">
+                <label for="title" class="form-label">Title</label>
+
+                <input
+                    name="listing[title]"
+                    value="<%= listing.title %>"
+                    type="text"
+                    class="form-control"
+                    required
+                />
+
+                <div class="valid-feedback">
+                    Title Looks good!
+                </div>
+            </div>
+
+
+            <!-- Description -->
+            <div class="mb-4">
+                <label for="description" class="form-label">Description</label>
+
+                <textarea
+                    name="listing[description]"
+                    class="form-control"
+                    required
+                ><%= listing.description %></textarea>
+
+                <div class="invalid-feedback">
+                    Please enter a short description
+                </div>
+            </div>
+
+
+            <div class="section-divider"></div>
+
+
+            <!-- Original Image -->
+            <div class="image-preview-box">
+                <p>Current Listing Image</p>
+
+                <img
+                    src="<%= originalImageUrl %>"
+                    class="image-preview"
+                    alt="Current listing image"
+                />
+            </div>
+
+
+            <!-- Upload New Image -->
+            <div class="mb-4">
+                <label for="image" class="form-label">
+                    Upload New Image
+                </label>
+
+                <div class="upload-box">
+                    <input
+                        name="listing[image]"
+                        id="image"
+                        type="file"
+                        class="form-control"
+                        accept="image/*"
+                    />
+                </div>
+            </div>
+
+
+            <!-- Image URL -->
+            <div class="mb-4">
+                <label for="imageUrl" class="form-label">
+                    Image Link
+                </label>
+
+                <input
+                    name="listing[image][url]"
+                    id="imageUrl"
+                    value="<%= listing.image.url %>"
+                    type="text"
+                    class="form-control"
+                    required
+                />
+
+                <div class="invalid-feedback">
+                    Please enter a valid link for Image
+                </div>
+            </div>
+
+
+            <div class="section-divider"></div>
+
+
+            <!-- Price + Country -->
+            <div class="row">
+
+                <div class="mb-4 col-md-4">
+                    <label for="price" class="form-label">
+                        Price
+                    </label>
+
+                    <input
+                        name="listing[price]"
+                        value="<%= listing.price %>"
+                        type="number"
+                        class="form-control"
+                        required
+                    />
+
+                    <div class="invalid-feedback">
+                        Price should be valid
+                    </div>
+                </div>
+
+
+                <div class="mb-4 col-md-8">
+                    <label for="country" class="form-label">
+                        Country
+                    </label>
+
+                    <input
+                        name="listing[country]"
+                        value="<%= listing.country %>"
+                        type="text"
+                        class="form-control"
+                        required
+                    />
+
+                    <div class="invalid-feedback">
+                        Country name should be valid
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Location -->
+            <div class="mb-4">
+                <label for="location" class="form-label">
+                    Location
+                </label>
+
+                <input
+                    name="listing[location]"
+                    value="<%= listing.location %>"
+                    type="text"
+                    class="form-control"
+                    required
+                />
+
+                <div class="invalid-feedback">
+                    Location name should be valid
+                </div>
+            </div>
+
+
+            <!-- Submit -->
+            <div class="text-end mt-4">
+                <button class="edit-submit" type="submit">
+                    Save Changes
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+</div>

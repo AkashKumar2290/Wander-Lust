@@ -1,0 +1,132 @@
+    .edit-page {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 45px 20px 70px;
+    }
+
+    .edit-header {
+        margin-bottom: 25px;
+    }
+
+    .edit-header h3 {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+
+    .edit-header p {
+        color: #6b7280;
+        margin: 0;
+    }
+
+    .edit-card {
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        border-radius: 22px;
+        padding: 32px;
+        box-shadow: 0 10px 35px rgba(0, 0, 0, 0.07);
+    }
+
+    .edit-card .form-label {
+        font-weight: 600;
+        color: #222;
+        margin-bottom: 8px;
+    }
+
+    .edit-card .form-control {
+        border: 1px solid #d9dce1;
+        border-radius: 12px;
+        padding: 11px 14px;
+        transition: 0.2s ease;
+    }
+
+    .edit-card .form-control:focus {
+        border-color: #fe424d;
+        box-shadow: 0 0 0 3px rgba(254, 66, 77, 0.12);
+    }
+
+    .edit-card textarea {
+        min-height: 130px;
+        resize: vertical;
+    }
+
+    .image-preview-box {
+        background: #f8f9fa;
+        border: 1px solid #e5e7eb;
+        border-radius: 16px;
+        padding: 18px;
+        margin-bottom: 25px;
+    }
+
+    .image-preview-box p {
+        font-weight: 600;
+        margin-bottom: 12px;
+    }
+
+    .image-preview {
+        width: 220px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 14px;
+        display: block;
+        border: 1px solid #ddd;
+    }
+
+    .upload-box {
+        border: 2px dashed #d8dadd;
+        border-radius: 15px;
+        padding: 20px;
+        background: #fafafa;
+        transition: 0.2s ease;
+    }
+
+    .upload-box:hover {
+        border-color: #fe424d;
+        background: #fff7f8;
+    }
+
+    .upload-box input {
+        background: white;
+    }
+
+    .section-divider {
+        height: 1px;
+        background: #eeeeee;
+        margin: 28px 0;
+    }
+
+    .edit-submit {
+        background: #fe424d;
+        color: white;
+        border: none;
+        border-radius: 12px;
+        padding: 11px 28px;
+        font-weight: 600;
+        transition: 0.2s ease;
+    }
+
+    .edit-submit:hover {
+        background: #e93640;
+        color: white;
+        transform: translateY(-1px);
+    }
+
+    @media (max-width: 768px) {
+        .edit-page {
+            padding: 30px 15px 50px;
+        }
+
+        .edit-card {
+            padding: 22px;
+        }
+
+        .edit-header h3 {
+            font-size: 1.6rem;
+        }
+
+        .image-preview {
+            width: 100%;
+            max-width: 280px;
+        }
+    }
+

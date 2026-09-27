@@ -1,0 +1,126 @@
+<% layout("layouts/boilerplate") %>
+
+
+
+<div class="login-page">
+
+
+<div class="login-card">
+
+    <div class="login-icon">
+        <i class="fa-regular fa-compass"></i>
+    </div>
+
+    <div class="login-header">
+        <h1>Welcome back</h1>
+
+        <p>
+            Log in to continue exploring beautiful
+            stays and destinations with WanderLust.
+        </p>
+    </div>
+
+
+    <form
+        action="/login"
+        method="post"
+        class="needs-validation"
+        novalidate
+    >
+
+        <!-- Username -->
+
+        <div class="mb-4">
+
+            <label for="username" class="form-label">
+                Username
+            </label>
+
+            <input
+                name="username"
+                id="username"
+                type="text"
+                class="form-control"
+                placeholder="Enter your username"
+                required
+            />
+
+            <div class="invalid-feedback">
+                Please enter your username.
+            </div>
+
+        </div>
+
+
+        <!-- Password -->
+
+        <div class="mb-4">
+
+            <label for="password" class="form-label">
+                Password
+            </label>
+
+            <div class="password-group">
+
+                <input
+                    type="password"
+                    class="form-control"
+                    id="password"
+                    name="password"
+                    placeholder="Enter your password"
+                    required
+                />
+
+                <button
+                    class="password-toggle"
+                    type="button"
+                    id="togglePassword"
+                    aria-label="Show password"
+                >
+                    <i class="bi bi-eye"></i>
+                </button>
+
+            </div>
+
+            <div class="invalid-feedback">
+                Please enter your password.
+            </div>
+
+        </div>
+
+
+        <!-- Login Button -->
+
+        <button class="login-btn" type="submit">
+            Log In
+            <i class="fa-solid fa-arrow-right ms-2"></i>
+        </button>
+
+    </form>
+
+
+    <div class="login-footer">
+        Don't have an account?
+        <a href="/signup">Create one</a>
+    </div>
+
+</div>
+
+
+</div>
+
+<script>
+    const password = document.getElementById("password");
+    const togglePassword = document.getElementById("togglePassword");
+
+    togglePassword.addEventListener("click", function () {
+
+        const isPassword = password.type === "password";
+
+        password.type = isPassword ? "text" : "password";
+
+        this.innerHTML = isPassword
+            ? '<i class="bi bi-eye-slash"></i>'
+            : '<i class="bi bi-eye"></i>';
+    });
+</script>

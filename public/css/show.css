@@ -1,0 +1,622 @@
+
+/* =========================================
+   SHOW LISTING PAGE
+========================================= */
+
+body {
+    background: #fff;
+}
+
+
+/* =========================================
+   MAIN WRAPPER
+========================================= */
+
+.listing-show-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 25px 20px 60px;
+}
+
+
+/* =========================================
+   LISTING HEADER
+========================================= */
+
+.listing-header {
+    margin-bottom: 22px;
+}
+
+.listing-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #222;
+}
+
+.listing-location {
+    color: #6c757d;
+    font-size: 0.98rem;
+}
+
+.listing-location i {
+    margin-right: 6px;
+}
+
+
+/* =========================================
+   MAIN LISTING CARD
+========================================= */
+
+.main-listing-card {
+    border: none;
+    border-radius: 22px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================
+   LISTING IMAGE
+========================================= */
+
+.show-img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* =========================================
+   LISTING DETAILS
+========================================= */
+
+.listing-details {
+    padding: 28px 5px 10px;
+}
+
+
+/* =========================================
+   OWNER BOX
+========================================= */
+
+.owner-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 22px;
+}
+
+.owner-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #fe424d;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.owner-text small {
+    display: block;
+    color: #777;
+    margin-bottom: 2px;
+}
+
+.owner-text strong {
+    font-size: 1rem;
+    color: #222;
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.description {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+
+/* =========================================
+   INFORMATION GRID
+========================================= */
+
+.listing-info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.info-box {
+    border: 1px solid #e9e9e9;
+    border-radius: 15px;
+    padding: 18px;
+    background: #fff;
+
+    transition: 0.25s ease;
+}
+
+.info-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+}
+
+.info-icon {
+    font-size: 1.25rem;
+    color: #fe424d;
+    margin-bottom: 8px;
+}
+
+.info-label {
+    color: #777;
+    font-size: 0.82rem;
+    margin-bottom: 3px;
+}
+
+.info-value {
+    font-weight: 600;
+    color: #222;
+}
+
+
+/* =========================================
+   OWNER EDIT / DELETE BUTTONS
+========================================= */
+
+.owner-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 12px;
+
+    margin-top: 20px;
+    margin-bottom: 30px;
+    margin-left: 0;
+}
+
+.owner-actions form {
+    margin: 0;
+}
+
+
+/* Same size for both buttons */
+
+.owner-edit-btn,
+.owner-delete-btn {
+    width: 110px;
+    height: 42px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+
+/* EDIT */
+
+.owner-edit-btn {
+    background: #fe424d;
+    color: white;
+    border: 1px solid #fe424d;
+}
+
+.owner-edit-btn:hover {
+    background: #e93640;
+    color: white;
+
+    transform: translateY(-1px);
+}
+
+
+/* DELETE */
+
+.owner-delete-btn {
+    background: #212529;
+    color: white;
+    border: 1px solid #212529;
+}
+
+.owner-delete-btn:hover {
+    background: #000;
+    color: white;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================
+   REVIEW SECTION
+========================================= */
+
+.review-section {
+    margin-top: 40px;
+}
+
+.section-title {
+    font-size: 1.45rem;
+    font-weight: 700;
+
+    margin-bottom: 20px;
+
+    color: #222;
+}
+
+
+/* =========================================
+   REVIEW FORM
+========================================= */
+
+.review-form-card {
+    border: 1px solid #e8e8e8;
+
+    border-radius: 18px;
+
+    padding: 25px;
+
+    background: #fff;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+
+    margin-bottom: 35px;
+}
+
+.review-form-card textarea {
+    border-radius: 12px;
+    resize: vertical;
+}
+
+
+/* =========================================
+   REVIEW SUBMIT BUTTON
+========================================= */
+
+.review-submit {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    min-width: 160px;
+    height: 46px;
+
+    padding: 0 22px;
+
+    background: #fe424d;
+    color: #fff;
+
+    border: 1px solid #fe424d;
+    border-radius: 10px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.review-submit:hover {
+    background: #e93640;
+    border-color: #e93640;
+
+    color: #fff;
+
+    transform: translateY(-1px);
+}
+
+.review-submit:active {
+    transform: translateY(0);
+}
+
+.review-submit i {
+    font-size: 14px;
+}
+
+
+/* =========================================
+   REVIEWS GRID
+========================================= */
+
+.reviews-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+}
+
+
+/* =========================================
+   REVIEW CARD
+========================================= */
+
+.review-card {
+    border: 1px solid #e8e8e8;
+
+    border-radius: 17px;
+
+    padding: 20px;
+
+    background: white;
+
+    transition: 0.25s ease;
+}
+
+.review-card:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   REVIEW USER
+========================================= */
+
+.review-user {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 12px;
+}
+
+.review-user-left {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.review-avatar {
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+
+    background: #f1f1f1;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-weight: 600;
+
+    color: #555;
+}
+
+.review-username {
+    font-weight: 600;
+}
+
+
+/* =========================================
+   REVIEW COMMENT
+========================================= */
+
+.review-comment {
+    color: #555;
+
+    line-height: 1.6;
+
+    margin-top: 12px;
+    margin-bottom: 15px;
+}
+
+
+/* =========================================
+   DELETE REVIEW BUTTON
+========================================= */
+
+.delete-review-btn {
+    border-radius: 8px;
+}
+
+
+
+.map-section {
+    margin-top: 45px;
+}
+
+.map-heading {
+    font-size: 1.5rem;
+
+    font-weight: 700;
+
+    margin-bottom: 15px;
+
+    color: #222;
+}
+
+
+/* =========================================
+   MAP
+========================================= */
+
+#map {
+    width: 100%;
+    height: 400px;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================
+   MAP UNAVAILABLE
+========================================= */
+
+.map-unavailable {
+    width: 100%;
+    height: 400px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    background: #f8f9fa;
+
+    border: 1px solid #e9e9e9;
+
+    border-radius: 20px;
+
+    color: #777;
+
+    text-align: center;
+}
+
+.map-unavailable i {
+    font-size: 32px;
+
+    color: #fe424d;
+}
+
+.map-unavailable span {
+    font-size: 15px;
+}
+
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .listing-show-wrapper {
+        padding: 15px 12px 40px;
+    }
+
+
+    /* HEADER */
+
+    .listing-header h1 {
+        font-size: 1.5rem;
+    }
+
+
+    /* IMAGE */
+
+    .show-img {
+        height: 300px;
+    }
+
+
+    /* INFO */
+
+    .listing-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* REVIEWS */
+
+    .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* OWNER BUTTONS */
+
+    .owner-actions {
+        gap: 10px;
+    }
+
+
+    /* MAP */
+
+    #map {
+        height: 320px;
+    }
+
+    .map-unavailable {
+        height: 320px;
+    }
+
+
+    /* REVIEW BUTTON */
+
+    .review-submit {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+    .listing-show-wrapper {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+
+    .show-img {
+        height: 250px;
+    }
+
+
+    .main-listing-card {
+        border-radius: 16px;
+    }
+
+
+    .review-form-card {
+        padding: 18px;
+    }
+
+
+    .owner-edit-btn,
+    .owner-delete-btn {
+        width: 105px;
+    }
+
+
+    .map-heading {
+        font-size: 1.3rem;
+    }
+
+}
+
